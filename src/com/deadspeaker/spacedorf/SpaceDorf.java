@@ -6,6 +6,8 @@
 
 package com.deadspeaker.spacedorf;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Nikolay
@@ -16,7 +18,16 @@ public class SpaceDorf {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Game game = new Game();
+        game.frame.setResizable(false);
+        game.frame.setTitle("Dorf");
+        game.frame.add(game);
+        game.frame.pack();
+        game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        game.frame.setLocationRelativeTo(null);
+        game.frame.setVisible(true);
+        
+        game.start();
     }
     
 }
