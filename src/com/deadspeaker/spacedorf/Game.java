@@ -4,7 +4,9 @@ package com.deadspeaker.spacedorf;
 import com.deadspeaker.spacedorf.graphics.Screen;
 import com.deadspeaker.spacedorf.input.Keyboard;
 import com.deadspeaker.spacedorf.level.Level;
+import com.deadspeaker.spacedorf.level.ProceduralLevel;
 import com.deadspeaker.spacedorf.level.RandomLevel;
+import com.sun.glass.events.KeyEvent;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -23,10 +25,10 @@ import javax.swing.JFrame;
 public class Game extends Canvas implements Runnable{
 
     //Height is decided by width and aspect ratio
-    private static final int width = 1024;
+    private static final int width = 1440;
     private static final int tileSize = 16;
     private static final int height = (width / 16) * 9; 
-    private static final int scale = 2;
+    private static final int scale = 1;
     
     private Thread thread;
     public JFrame frame;
@@ -45,8 +47,9 @@ public class Game extends Canvas implements Runnable{
         setPreferredSize(size);
         
         frame = new JFrame();
+        frame.setUndecorated(true);
         screen = new Screen(width, height, tileSize);
-        level = new RandomLevel(64, 64);
+        level = new ProceduralLevel(85,50);
         keyboard = new Keyboard();
         
         addKeyListener(keyboard);
@@ -95,14 +98,18 @@ public class Game extends Canvas implements Runnable{
             frames++;
             
             if(System.currentTimeMillis() - timer > 1000) {
-                level = new RandomLevel(64, 64);
+                //level = new ProceduralLevel(40,25); 
                 timer += 1000;
                 ups = ticks;
                 fps = frames;
                 ticks = 0;
                 frames = 0;
             }
+            
+            if(keyboard.keys[KeyEvent.VK_ESCAPE])
+                running = false;
         }
+        frame.dispose();
     }
     
     //Updates the game

@@ -19,6 +19,7 @@ public class Tile {
     public static Tile grassTile = new GrassTile(Sprite.grassSprite);
     public static Tile waterTile = new WaterTile(Sprite.waterSprite);
     public static Tile bookcaseTile = new BookcaseTile(Sprite.bookcaseSprite);
+    public static Tile wallTile = new WallTile(Sprite.wallSprite);
     public static Tile voidTile = new VoidTile(Sprite.voidSprite);
     
     public void render(int x, int y, Screen screen){

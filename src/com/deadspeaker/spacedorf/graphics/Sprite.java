@@ -14,6 +14,7 @@ public class Sprite {
     public static Sprite grassSprite = new Sprite(16, 0, 0, SpriteSheet.tiles);
     public static Sprite bookcaseSprite = new Sprite(16, 1, 0, SpriteSheet.tiles);
     public static Sprite waterSprite = new Sprite(16, 2, 0, SpriteSheet.tiles);
+    public static Sprite wallSprite = new Sprite(16, 3, 0, SpriteSheet.tiles);
     public static Sprite voidSprite = new Sprite(16, 0xFF87CEEB);
     
     public Sprite(int size, int color){

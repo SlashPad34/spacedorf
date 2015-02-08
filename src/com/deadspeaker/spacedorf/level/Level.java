@@ -9,13 +9,11 @@ import com.deadspeaker.spacedorf.level.tile.Tile;
 * @author Nikolay Padyukov
 */
 public class Level {
-    protected int width, height;
+    protected int levelWidth, levelHeight;
     protected int[] tiles;
     public Level(int width, int height){
-        this.width = width; this.height = height;
+        this.levelWidth = width; this.levelHeight = height;
         this.tiles = new int[width * height];
-        
-        generateLevel();
     }
     
     protected void generateLevel(){
@@ -34,13 +32,14 @@ public class Level {
     }
     
     private Tile getTile(int x, int y){
-        if(x < 0 || x >= width || y < 0 || y >= height) return Tile.voidTile;
-        switch(tiles[x + y * width]){
-            case 0: return Tile.grassTile;
+        if(x < 0 || x >= levelWidth || y < 0 || y >= levelHeight) return Tile.voidTile;
+        switch(tiles[x + y * levelWidth]){
+            case 0: return Tile.voidTile;
             case 1: return Tile.grassTile;
             case 2: return Tile.bookcaseTile;
             case 3: return Tile.waterTile;
-            default: return Tile.grassTile;
+            case 4: return Tile.wallTile;
+            default: return Tile.voidTile;
         }
     }
     

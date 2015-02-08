@@ -25,6 +25,7 @@ public class SpaceDorf {
         game.frame.pack();
         game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         game.frame.setLocationRelativeTo(null);
+        //game.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         game.frame.setVisible(true);
         
         game.start();

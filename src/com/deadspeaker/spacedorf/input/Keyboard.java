@@ -11,7 +11,7 @@ import java.awt.event.KeyListener;
 */
 public class Keyboard implements KeyListener{
 
-    private boolean[] keys = new boolean[Character.MAX_VALUE];
+    public boolean[] keys = new boolean[Character.MAX_VALUE];
     public boolean up, down, left, right;
     
     @Override
